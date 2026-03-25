@@ -36,7 +36,7 @@ struct MainViewContentHeader: View {
         }
     }
 }
-//#Preview {
-//    ContentView()
-//}
+#Preview {
+    ContentView()
+}
 

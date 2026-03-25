@@ -42,8 +42,8 @@ struct PaymentCard: View{
                 }
             }
             HStack(spacing: 20){
-                FullButton()
-                SolidButton()
+                FullButton(text: "Pay", fillColor: .white, textColor: .appBlue)
+                SolidButton(text: "Details", solidColor: .white, textColor: .white)
             }
             .padding(.top, 12)
             
@@ -56,6 +56,4 @@ struct PaymentCard: View{
         .clipShape(RoundedRectangle(cornerRadius: 25))
     }
 }
-#Preview {
-    ContentView()
-}
+

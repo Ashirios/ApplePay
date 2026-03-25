@@ -1,19 +1,22 @@
 import SwiftUI
 
 struct SolidButton: View{
+    var text: String
+    var solidColor: Color
+    var textColor: Color
     var body: some View{
         Button{
             
         }label: {
-            Text("Details")
-                .gravity(.light, 20 )
+            Text(text)
+                .gravity(.black, 20 )
                 .padding(.top,7)
                 .padding(.bottom, 7)
                 .frame(maxWidth: .infinity)
-                .foregroundStyle(Color(.white))
+                .foregroundStyle(textColor)
                 .overlay{
                     Capsule()
-                        .stroke(Color(.white), lineWidth: 1)
+                        .stroke(solidColor, lineWidth: 1)
                 }
         }
         
