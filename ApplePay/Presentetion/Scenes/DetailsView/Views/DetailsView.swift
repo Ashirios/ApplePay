@@ -68,7 +68,7 @@ struct DetailsView: View{
             Spacer()
             
             VStack(alignment: .leading){
-                FullButton(text: "Pay", fillColor: .appBlue, textColor: .white)
+                SolidButton(text: "Pay", solidColor: .appBlue, textColor: .appBlue, isFull: true)
                 SolidButton(text: "Delete last payment", solidColor: .appBlue, textColor: .appBlue)
             }
         }

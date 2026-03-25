@@ -2,10 +2,11 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var isShowAddView: Bool = false
     var body: some View {
         ZStack(alignment: .top){
             HeaderView(page: HeaderViewContent(totalPrice: "879 268", title: "Amount of debts", data: "December 15", pageType: .main), action: {
-                print("add")
+                isShowAddView.toggle()
             })
             .zIndex(1)
             ScrollView(showsIndicators: false){
@@ -27,6 +28,9 @@ struct ContentView: View {
         }
         .padding(.horizontal, 20)
         .background(.white)
+        .sheet(isPresented: $isShowAddView){
+            AddView()
+        }
       
         
     }
