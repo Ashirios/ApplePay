@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct MainViewContentHeader: View {
+    @Binding var payType: PayType
     var body: some View{
         VStack(alignment: .leading){
             HStack{
@@ -10,18 +11,18 @@ struct MainViewContentHeader: View {
                 Spacer()
                 HStack(spacing: 16){
                     Button{
-                        
+                        payType = .monthly
                     }label: {
                         Text("Monthly")
-                            .gravity(.black, 12)
+                            .gravity(payType == .monthly ? .black : .light, 17)
                             .foregroundStyle(.appBlue)
                     }
                     
                     Button{
-                        
+                        payType = .oneTime
                     }label:{
                         Text("One-time")
-                            .gravity(.light, 12)
+                            .gravity(payType == .oneTime ? .black : .light, 17)
                             .foregroundStyle(.appBlue)
                     }
                 }
@@ -36,7 +37,7 @@ struct MainViewContentHeader: View {
         }
     }
 }
-#Preview {
-    ContentView()
-}
+//#Preview {
+//    ContentView()
+//}
 

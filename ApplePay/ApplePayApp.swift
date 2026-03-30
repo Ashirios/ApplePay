@@ -1,17 +1,23 @@
-//
-//  ApplePayApp.swift
-//  ApplePay
-//
-//  Created by alina on 24.03.2026.
-//
+
 
 import SwiftUI
 
 @main
 struct ApplePayApp: App {
+    @State var path: NavigationPath = .init()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationStack(path: $path ){
+                MainTabView(path: $path)
+                    .navigationBarHidden(true)
+                    .navigationDestination(for: NavigationPage.self){ page in
+                        switch page{
+                        case .details:
+                            DetailsView(path: $path)
+                        }
+                        
+                    }
+            }
         }
     }
 }

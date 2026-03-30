@@ -2,10 +2,6 @@
 import SwiftUI
 import Foundation
 
-enum PayType{
-    case monthly
-    case oneTime
-}
 
 
 struct AddView: View {
@@ -15,12 +11,41 @@ struct AddView: View {
     @State var payType: PayType = .oneTime
     @State var date: Date = .now
     @State var isShowCalendar = false
+    @State var isAdded: Bool = false
     var body: some View {
-        VStack(alignment: .leading, spacing: 27){
+        VStack(alignment: .center, spacing: 27){
+            Text("Add paymnet")
+                .gravity(.black, 23)
+            
+            if !isAdded {
+                addViewContent
+            }else{
+                Spacer()
+                addSuccess
+                Spacer()
+            }
+            
+            
+            
+            
+        }
+        .padding(.horizontal, 10)
+        .padding(.vertical, 20)
+        .frame(maxWidth: .infinity)
+       
+    }
+}
+
+#Preview {
+    AddView()
+}
+
+extension AddView {
+    var addViewContent: some View {
+        VStack(alignment: .center, spacing: 27){
             VStack(alignment: .leading, spacing: 25){
-                VStack( spacing: 25){
-                    Text("Add paymnet")
-                        .gravity(.black, 23)
+               
+                    
                     HStack(spacing: 23){
                         SolidButton(text: "Every month", solidColor: .appBlue, textColor: .appBlue, isFull: payType == .monthly){
                             payType = .monthly
@@ -28,8 +53,9 @@ struct AddView: View {
                         SolidButton(text: "one-time", solidColor: .appBlue, textColor: .appBlue, isFull: payType == .oneTime){
                             payType = .oneTime
                         }
-                    }
+                    
                 }
+               
                 
                 switch payType {
                 case .monthly:
@@ -105,15 +131,21 @@ struct AddView: View {
             
             Spacer()
             FullButton(text: "Add", fillColor: .appBlue, textColor: .white)
-            
         }
-        .padding(.horizontal, 10)
-        .padding(.vertical, 20)
-       
     }
 }
 
-#Preview {
-    AddView()
+extension AddView{
+    var addSuccess: some View{
+        VStack(spacing: 55){
+            Image(systemName: "checkmark.circle")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 127, height: 127)
+                .foregroundStyle(.appBlue)
+            Text("Payment added")
+                .gravity(.black, 22)
+                .foregroundStyle(.appBlue)
+        }
+    }
 }
-

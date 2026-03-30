@@ -2,6 +2,7 @@ import SwiftUI
 
 struct DetailsView: View{
     @State var isNotificationSelected: Bool = false
+    @Binding var path: NavigationPath
     var body : some View{
         VStack(alignment: .leading){
             header
@@ -13,7 +14,7 @@ struct DetailsView: View{
                     Text("Car loan")
                         .gravity(.black, 16)
                 }
-                .padding(.vertical, 30)
+                .padding(.vertical, 20)
                 
                 VStack(alignment: .leading, spacing: 26){
                     VStack(alignment: .leading, spacing: 17){
@@ -74,19 +75,16 @@ struct DetailsView: View{
         }
         .padding(.horizontal, 20)
         .background(.white)
+        .navigationBarHidden(true)
     }
 }
 
-
-#Preview {
-    DetailsView()
-}
 
 extension DetailsView{
     var header: some View {
         HStack {
             Button{
-                
+                path.removeLast()
             }label: {
                 Image(systemName: "chevron.left")
                     .resizable()

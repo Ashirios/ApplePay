@@ -21,15 +21,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "540849B8-3173-4DD4-A7AA-1373936698CE"
-            shouldBeEnabled = "No"
+            uuid = "A040ABC3-DFCC-4E82-972E-1584C0E2EE1A"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ApplePay/Presentetion/Scenes/AddView/View/AddView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -37,17 +37,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "01E4FFF3-FF53-4EC7-A926-FD18FE99CB6D"
-            shouldBeEnabled = "No"
+            uuid = "74DE1E31-1CDA-4F78-9045-AEF5A0C1ED22"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ApplePay/Presentetion/Scenes/AddView/View/AddView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
-            landmarkName = "body"
-            landmarkType = "24">
+            startingLineNumber = "137"
+            endingLineNumber = "137"
+            landmarkName = "AddView"
+            landmarkType = "21">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

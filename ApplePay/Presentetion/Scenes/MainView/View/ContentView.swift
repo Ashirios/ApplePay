@@ -3,21 +3,30 @@ import SwiftUI
 
 struct ContentView: View {
     @State var isShowAddView: Bool = false
+    @State var payType: PayType = .monthly
+    @Binding var path: NavigationPath
     var body: some View {
         ZStack(alignment: .top){
             HeaderView(page: HeaderViewContent(totalPrice: "879 268", title: "Amount of debts", data: "December 15", pageType: .main), action: {
                 isShowAddView.toggle()
-            })
+            }, date: .constant(.now))
             .zIndex(1)
             ScrollView(showsIndicators: false){
                 VStack(alignment: .leading, spacing: 19){
-                    MainViewContentHeader()
+                    MainViewContentHeader(payType: $payType)
                     
                     VStack(alignment: .leading, spacing: 19){
-                        PaymentCard()
-                        PaymentCard()
-                        PaymentCard()
-                        PaymentCard()
+                        switch payType{
+                        case .monthly:
+                            PaymentCard(path: $path)
+                            PaymentCard(path: $path)
+                            PaymentCard(path: $path)
+                            PaymentCard(path: $path)
+                        case .oneTime:
+                            PaymentCard(path: $path)
+                            PaymentCard(path: $path)
+                            
+                        }
                     }
                 }
                 
@@ -37,6 +46,3 @@ struct ContentView: View {
 }
 
 
-#Preview {
-    ContentView()
-}

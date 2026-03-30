@@ -1,16 +1,18 @@
 import SwiftUI
 
 struct MainTabView: View{
-    @State var selectionPage: TabPage = .paymentList
-    init(){
+    @State var selectionPage: TabPage = .main
+    @Binding var path: NavigationPath
+    init(path: Binding<NavigationPath>){
         UITableView.appearance().isHidden = true
+        self._path = path
     }
     var body: some View{
         ZStack(alignment: .bottom){
             TabView(selection: $selectionPage){
-                ContentView()
+                ContentView(path: $path)
                     .tag(TabPage.main)
-                PaymentsView()
+                PaymentsView(path: $path)
                     .tag(TabPage.paymentList)
             }
             
@@ -34,37 +36,7 @@ struct MainTabView: View{
     }
 }
 
-#Preview {
-    MainTabView()
-}
+//#Preview {
+//    MainTabView()
+//}
 
-struct TabItem: View{
-    var image: String
-    var text: String
-    var pageType: TabPage
-    @Binding var selected: TabPage
-    var body: some View{
-        Button{
-            selected = pageType
-        } label: {
-           
-                VStack{
-                    Image(systemName: image)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 16, height: 16)
-                    Text(text)
-                        .gravity(.light, 16)
-                }
-                .foregroundStyle(pageType == selected ? .appBlue : .white)
-                .padding(.vertical, 5)
-                .padding(.horizontal, 20)
-                .background(selected == pageType ? Color.white : .appBlue)
-                .clipShape(RoundedRectangle(cornerRadius: 35))
-               
-            
-           
-        }
-       
-    }
-}
